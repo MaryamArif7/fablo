@@ -7,7 +7,7 @@ msp:
 
 orderer:
   address: orderer-router:7050
-  channel: mychannel
+  channel: <%= channels[0].name %>
   tls:
     enabled: true
     clientCert: /tls/server.crt

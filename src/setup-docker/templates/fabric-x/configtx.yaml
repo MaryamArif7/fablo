@@ -149,7 +149,7 @@ Channel: &ChannelDefaults
     <<: *ChannelCapabilities
 
 Profiles:
-  OrgsChannel:
+  <%= channels[0].profileName %>:
     <<: *ChannelDefaults
     Orderer:
       <<: *OrdererDefaults
