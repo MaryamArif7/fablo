@@ -113,9 +113,15 @@ function getDefaultFabricXConfig(): FabloConfigJson {
         ],
       },
     ],
+    namespaces: [
+      {
+        name: "mynamespace",
+      },
+
+    ],
     chaincodes: [],
     hooks: {},
-  };
+  }
 }
 
 function getDefaultFabloConfig(): FabloConfigJson {

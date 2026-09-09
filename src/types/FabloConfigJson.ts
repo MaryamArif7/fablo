@@ -84,7 +84,10 @@ export interface HooksJson {
   postGenerate?: string;
   postStart?: string;
 }
-
+export interface NamespaceJson {
+  name: string;
+  policy?: string;
+}
 export interface FabloConfigJson {
   $schema: string;
   global: GlobalJson;
@@ -92,4 +95,5 @@ export interface FabloConfigJson {
   channels: ChannelJson[];
   chaincodes: ChaincodeJson[];
   hooks: HooksJson;
+  namespaces?: NamespaceJson[];
 }

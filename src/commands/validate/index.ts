@@ -583,6 +583,24 @@ export default class Validate extends Command {
         message: `fabric-x requires exactly one channel found ${channels.length}.`,
       });
     }
+        const namespaces = networkConfig.namespaces ?? [];
+    if (namespaces.length < 1) {
+      this.emit(validationErrorType.ERROR, {
+        category: validationCategories.GENERAL,
+        message: "fabric-x requires at least one entry in 'namespaces'.",
+      });
+    }
+ 
+    const namespaceNames = new Set<string>();
+    namespaces.forEach((namespace) => {
+      if (namespaceNames.has(namespace.name)) {
+        this.emit(validationErrorType.ERROR, {
+          category: validationCategories.GENERAL,
+          message: `Duplicate namespace '${namespace.name}' found. Namespace names must be unique.`,
+        });
+      }
+      namespaceNames.add(namespace.name);
+    });
   }
   _validateExplorer(global: GlobalJson, orgs: OrgJson[]): void {
     if (global.tools?.explorer === true) {
